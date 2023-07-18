@@ -61,10 +61,10 @@ st.set_page_config(layout="wide", page_title="OctoAI QR Code Generator")
 st.write("## QR Chef - Powered by OctoAI")
 
 url = st.text_input("URL to your webpage!", "https://octoml.ai/")
+
 food_type = st.text_input("Your favorite food!", "nachos")
-upload = st.button('(re-)Generate QR code!')
 
 col1, col2, col3 = st.columns(3)
 
-if upload is not None:
+if st.button('(re-)Generate QR code!'):
     transform_qr_code(url, food_type)
