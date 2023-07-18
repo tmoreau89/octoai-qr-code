@@ -58,7 +58,7 @@ def transform_qr_code(url, food_type):
 
 st.set_page_config(layout="wide", page_title="OctoAI QR Code Generator")
 
-st.write("## Foody QR Code Generator - Powered by OctoAI")
+st.write("## QR Chef - Powered by OctoAI")
 
 url = st.text_input("URL to your webpage!", "https://octoml.ai/")
 food_type = st.text_input("Your favorite food!", "nachos")
