@@ -8,7 +8,7 @@ from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer
 
 
 api = webuiapi.WebUIApi(
-    host="a1111-webui-api-4jkxk521l3v1.octoai.cloud", port=443, use_https=True
+    host="octoai-qr-4jkxk521l3v1.octoai.cloud", port=443, use_https=True
 )
 
 def transform_qr_code(url, food_type):
@@ -56,7 +56,7 @@ def transform_qr_code(url, food_type):
         elif i % 3 == 2:
             col3.image(res.images[0])
 
-st.set_page_config(layout="wide", page_title="OctoAI QR Code Generator")
+st.set_page_config(layout="wide", page_title="QR Chef")
 
 st.write("## QR Chef - Powered by OctoAI")
 
