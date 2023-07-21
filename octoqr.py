@@ -35,7 +35,7 @@ def transform_qr_code(url, food_type):
             weight=1.25,
             guidance_start=0,
             guidance_end=0.90,
-            model="qrCodeMonster_v20 [5e5778cb]"
+            model="control_v1p_sd15_qrcode_monster [5e5778cb]"
         )
         res = api.txt2img(
             prompt=food_type+", RAW photo, <lora:foodphoto:0.8> foodphoto, soft lighting, high quality, film grain, Fujifilm XT",
