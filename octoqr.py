@@ -8,7 +8,7 @@ from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer
 
 
 api = webuiapi.WebUIApi(
-    host="octoai-qr-4jkxk521l3v1.octoai.cloud", port=443, use_https=True
+    host="octoai-qr-logo-demo-4jkxk521l3v1.octoai.cloud", port=443, use_https=True
 )
 
 def transform_qr_code(url, food_type):
