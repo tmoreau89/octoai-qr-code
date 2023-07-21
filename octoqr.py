@@ -14,7 +14,7 @@ api = webuiapi.WebUIApi(
 def transform_qr_code(url, food_type):
     qr = qrcode.QRCode(
         version=3,
-        box_size=30,
+        box_size=10,
         border=1,
         error_correction=qrcode.ERROR_CORRECT_H)
     qr.add_data(url)
@@ -32,22 +32,22 @@ def transform_qr_code(url, food_type):
         unit1 = webuiapi.ControlNetUnit(
             input_image=img,
             module="invert",
-            weight=1.20,
-            guidance_start=0.25,
-            guidance_end=0.95,
-            model="controlnetQRPatternQR_v2Sd15 [2d8d5750]"
+            weight=1.25,
+            guidance_start=0,
+            guidance_end=0.90,
+            model="qrCodeMonster_v20 [5e5778cb]"
         )
         res = api.txt2img(
-            prompt=food_type+", RAW photo, <lora:foodphoto:0.8> foodphoto, dslr, soft lighting, high quality, film grain, Fujifilm XT",
+            prompt=food_type+", RAW photo, <lora:foodphoto:0.8> foodphoto, soft lighting, high quality, film grain, Fujifilm XT",
             seed=seed+i,
             cfg_scale=7,
             steps=30,
-            width=512,
-            height=512,
+            width=768,
+            height=768,
             n_iter=1,
             sampler_name="Euler a",
             controlnet_units=[unit1],
-            override_settings={"sd_model_checkpoint": "v1-5-pruned.safetensors"},
+            override_settings={"sd_model_checkpoint": "realistic.safetensors"},
         )
         if i % 3 == 0:
             col1.image(res.images[0])
