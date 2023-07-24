@@ -31,22 +31,23 @@ def transform_qr_code(url, food_type):
     unit1 = webuiapi.ControlNetUnit(
         input_image=img,
         module="invert",
-        weight=1.25,
+        weight=1.6,
         guidance_start=0,
-        guidance_end=0.90,
+        guidance_end=0.9,
         model="control_v1p_sd15_qrcode_monster [5e5778cb]"
     )
     res = api.txt2img(
         prompt=food_type+", RAW photo, <lora:foodphoto:0.8> foodphoto, soft lighting, high quality, film grain, Fujifilm XT",
+        negative_prompt="nsfw, nudity, human, person",
         seed=seed,
         cfg_scale=7,
-        steps=20,
+        steps=25,
         width=768,
         height=768,
         n_iter=1,
         sampler_name="Euler a",
         controlnet_units=[unit1],
-        override_settings={"sd_model_checkpoint": "realistic.safetensors"},
+        override_settings={"sd_model_checkpoint": "realistic-v40.safetensors"},
     )
     st.image(res.images[0])
 
